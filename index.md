@@ -263,6 +263,7 @@ to match your plans.  You may also want to change 'Day 1' and 'Day
   The schedule for about 3 h of instruction will be determined by each instructor and the learners in their cohort.
 </p>
 
+{% comment %}
 {% if site.carpentry == "swc" %}
 {% include swc/schedule.html %}
 {% elsif site.carpentry == "dc" %}
@@ -270,6 +271,7 @@ to match your plans.  You may also want to change 'Day 1' and 'Day
 {% elsif site.carpentry == "lc" %}
 {% include lc/schedule.html %}
 {% endif %}
+{% endcomment %}
 
 <hr/>
 
