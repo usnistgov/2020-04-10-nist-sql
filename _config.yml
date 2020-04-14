@@ -35,7 +35,7 @@ flavor: "r"
 # Most workshops don't use extra pages. More information about extra
 # pages are included in the README:
 # https://github.com/carpentries/workshop-template#creating-extra-pages
-title: "NIST Telework SQL"
+title: "Databases and SQL"
 
 
 #------------------------------------------------------------
@@ -71,6 +71,8 @@ template_repo: "https://github.com/carpentries/styles"
 training_site: "https://carpentries.github.io/instructor-training"
 workshop_repo: "https://github.com/carpentries/workshop-template"
 workshop_site: "https://carpentries.github.io/workshop-template"
+course_notes: "http://swcarpentry.github.io/sql-novice-survey/"
+course_reference: "http://swcarpentry.github.io/sql-novice-survey/reference"
 
 # Surveys.
 pre_survey: "https://carpentries.typeform.com/to/wi32rS?slug="

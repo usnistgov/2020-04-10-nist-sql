@@ -1,18 +1,18 @@
 ---
 layout: workshop      # DON'T CHANGE THIS.
-venue: "National Institute of Standards and Technology"        # brief name of host site without address (e.g., "Euphoric State University")
-address: "Cloud"      # full street address of workshop (e.g., "Room A, 123 Forth Street, Blimingen, Euphoria")
+venue: "NIST Telework Lessons"        # brief name of host site without address (e.g., "Euphoric State University")
+address: "Online (as indicated by group leader)"      # full street address of workshop (e.g., "Room A, 123 Forth Street, Blimingen, Euphoria")
 country: "us"      # lowercase two-letter ISO country code such as "fr" (see https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes)
 language: "en"     # lowercase two-letter ISO language code such as "fr" (see https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
-latitude: "90"     # decimal latitude of workshop venue (use https://www.latlong.net/)
-longitude: "-135"    # decimal longitude of the workshop venue (use https://www.latlong.net)
-humandate: "Apr 10-???, 2020"    # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
-humantime: "TBD"    # human-readable times for the workshop (e.g., "9:00 am - 4:30 pm")
+#latitude: "90"     # decimal latitude of workshop venue (use https://www.latlong.net/)
+#longitude: "180"    # decimal longitude of the workshop venue (use https://www.latlong.net)
+humandate: "April 2020"    # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
+#humantime: "TBD"    # human-readable times for the workshop (e.g., "9:00 am - 4:30 pm")
 startdate: 2020-04-10      # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
 enddate: TBD        # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
-instructor: ["Dilip Banerjee", "Chandler Becker", "Gretchen Greene", "Josh Taillon", "Daniel Wheeler"] # boxed, comma-separated list of instructors' names as strings, like ["Kay McNulty", "Betty Jennings", "Betty Snyder"]
+instructor: ["Dilip Banerjee", "Chandler Becker", "Gretchen Greene", "Josh Taillon"] # boxed, comma-separated list of instructors' names as strings, like ["Kay McNulty", "Betty Jennings", "Betty Snyder"]
 helper: ["TBD"]     # boxed, comma-separated list of helpers' names, like ["Marlyn Wescoff", "Fran Bilas", "Ruth Lichterman"]
-email: ["fixme@example.org"]    # boxed, comma-separated list of contact email addresses for the host, lead instructor, or whoever else is handling questions, like ["marlyn.wescoff@example.org", "fran.bilas@example.org", "ruth.lichterman@example.org"]
+email: ["dilip.banerjee@nist.gov", "chandler.becker@nist.gov", "gretchen.greene@nist.gov", "joshua.taillon@nist.gov"]    # boxed, comma-separated list of contact email addresses for the host, lead instructor, or whoever else is handling questions, like ["marlyn.wescoff@example.org", "fran.bilas@example.org", "ruth.lichterman@example.org"]
 collaborative_notes:             # optional: URL for the workshop collaborative notes, e.g. an Etherpad or Google Docs document (e.g., https://pad.carpentries.org/2015-01-01-euphoria)
 eventbrite:           # optional: alphanumeric key for Eventbrite registration, e.g., "1234567890AB" (if Eventbrite is being used)
 ---
@@ -113,6 +113,11 @@ address.
   or
   <a href="//maps.google.com/maps?q={{page.latitude}},{{page.longitude}}">Google Maps</a>.
 </p>
+{% elsif page.address %}
+<p id="where">
+  <strong>Where:</strong>
+  {{page.address}}
+</p>
 {% endif %}
 
 {% comment %}
@@ -123,10 +128,32 @@ This block displays the date and links to Google Calendar.
 {% if page.humandate %}
 <p id="when">
   <strong>When:</strong>
-  {{page.humandate}}.
+  {{page.humandate}}
+  {% comment %}
   {% include workshop_calendar.html %}
+  {% endcomment %}
 </p>
 {% endif %}
+
+{% comment %}
+HOW
+Special block for remote sessions explaining the approach.
+{% endcomment %}
+<p id="how">
+  <strong>How:</strong>
+  Although specific implementations will vary by cohort and instructor, groups
+  will generally meet virtually via a web conferencing tool, and the instructor
+  will present with a shared screen to a group of no more than 10 learners.
+  Learners will follow along, running commands on their own systems and can
+  interact with the instructor and helpers throughout the process.
+</p>
+<p>
+  We appreciate your patience and understanding as moving these sessions to an
+  online-only format is a first-time learning experience for us and you alike,
+  and hiccups in the process are certain to arise. We will try our hardest to
+  ensure a good learning experience regardless of the circumstances, but
+  feel free to let us know if you have any suggestions for improvements.
+</p>
 
 {% comment %}
 SPECIAL REQUIREMENTS
@@ -134,8 +161,22 @@ SPECIAL REQUIREMENTS
 Modify the block below if there are any special requirements.
 {% endcomment %}
 <p id="requirements">
-  <strong>Requirements:</strong> Participants must bring a laptop with a
-  Mac, Linux, or Windows operating system (not a tablet, Chromebook, etc.) that they have administrative privileges on. They should have a few specific software packages installed (listed <a href="#setup">below</a>).
+  <strong>Requirements:</strong> 
+  Participants must have a computer with a   Mac, Linux, or Windows operating
+  system (not a tablet, iPad, etc.) that they have administrative privileges on.
+  They should  have a few specific software packages installed (listed
+  <a href="#setup">below</a>). If this is not possible, we can also provide a
+  remote <em>virtual desktop</em> that can be used for the session (contact your
+  instructor for details), but we prefer that you install the software on your
+  NIST machine as a learning exercise.
+</p>
+<p>
+  Due to limited screen "real estate", you may find it easier if you have
+  multiple monitors: one for the instructor's display and webinar, and another
+  on which to evaluate commands and practice in realtime. If this is not
+  possible, another solution is to use a second device (such as a tablet or
+  another perhaps personal laptop) to login to the web conference and view the
+  instructor, while you follow along interactively on your "main" computer.
 </p>
 
 {% comment %}
@@ -146,8 +187,10 @@ special instructions.
 {% endcomment %}
 <p id="accessibility">
   <strong>Accessibility:</strong> We are committed to making this workshop
-  accessible to everybody.
-  The workshop organizers have checked that:
+  accessible to everybody. As the workshop will be conducted entirely online,
+  you will be able to participate from the comfort of your teleworking location,
+  but please let your instructor know in advance if we can make any
+  accommodations to help make learning easier for you.
 </p>
 <ul>
   <li>The room is wheelchair / scooter accessible.</li>
@@ -247,7 +290,11 @@ to match your plans.  You may also want to change 'Day 1' and 'Day
 <h2 id="schedule">Schedule</h2>
 
 <p>
-  The schedule for about 3 h of instruction will be determined by each instructor and the learners in their cohort.
+    The schedule is planned for about 6 hours total of instruction for this topic. The detailed
+    schedule will be determined by each instructor and the learners in their cohort,
+    and communicated separately. We will be following the curriculum of the
+    <a href="{{ site.course_notes }}">{{ site.title }}</a> carpentry
+    course, adapted for online teaching.
 </p>
 
 {% comment %}
@@ -305,7 +352,17 @@ and end easier to find.
 This is the other place where people frequently make mistakes, so
 please preview your site before committing, and make sure to run
 'tools/check' as well.
+
+Also add some better formatting to these tabs
 {% endcomment %}
+
+<style>
+  .tab-content > .active {
+        background: #f7f7f7;
+        border: #ddd solid 1px;
+        padding: 1em 1em 0.5em 1em;
+  }
+</style>
 
 <h2 id="setup">Setup</h2>
 
